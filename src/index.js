@@ -4,13 +4,19 @@ import createReactContext from "create-react-context";
 const OptimizeContext = createReactContext();
 
 export class Experiment extends React.Component {
+  static defaultProps = {
+    loader: null
+  };
+
   state = {
     variant: null
   };
 
   updateVariant = value => {
     // if experiment not active, render original
-    this.setState({ variant: value === undefined ? "0" : value });
+    this.setState({
+      variant: value === undefined || value === null ? "0" : value
+    });
   };
 
   delayedInitialization = () => {
@@ -25,7 +31,8 @@ export class Experiment extends React.Component {
     }
 
     // Delayed init
-    const hideEnd = window.dataLayer && window.dataLayer.hide && window.dataLayer.hide.end;
+    const hideEnd =
+      window.dataLayer && window.dataLayer.hide && window.dataLayer.hide.end;
     if (hideEnd) {
       window.dataLayer.hide.end = () => {
         this.delayedInitialization();
@@ -35,14 +42,14 @@ export class Experiment extends React.Component {
       this.delayedInitialization();
     }
 
-    gtag("event", "optimize.callback", {
+    window.gtag && window.gtag("event", "optimize.callback", {
       name: this.props.id,
       callback: this.updateVariant
     });
   }
 
   componentWillUnmount() {
-    gtag("event", "optimize.callback", {
+    window.gtag && window.gtag("event", "optimize.callback", {
       name: this.props.id,
       callback: this.updateVariant,
       remove: true
@@ -59,14 +66,12 @@ export class Experiment extends React.Component {
 }
 
 export class Variant extends React.Component {
-  static contextType = OptimizeContext;
-
   render() {
-    if (this.context !== this.props.id) {
-      return null;
-    }
-
-    return this.props.children;
+    return (
+      <OptimizeContext.Consumer>
+        {value => (value === this.props.id ? this.props.children : null)}
+      </OptimizeContext.Consumer>
+    );
   }
 }
 
