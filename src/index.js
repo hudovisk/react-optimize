@@ -25,7 +25,7 @@ export class Experiment extends React.Component {
     }
 
     // Delayed init
-    const hideEnd = window.dataLayer.hide.end;
+    const hideEnd = window.dataLayer && window.dataLayer.hide && window.dataLayer.hide.end;
     if (hideEnd) {
       window.dataLayer.hide.end = () => {
         this.delayedInitialization();
