@@ -7,9 +7,6 @@
     "build": "webpack",
     "watch": "webpack --watch"
   },
-  "dependencies": {
-    "create-react-context": "^0.2.3"
-  },
   "devDependencies": {
     "@babel/core": "^7.1.5",
     "@babel/plugin-proposal-class-properties": "^7.1.0",
