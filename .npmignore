@@ -1,0 +1,5 @@
+src
+node_modules
+webpack.config.js
+commitlint.config.js
+.travis.yml

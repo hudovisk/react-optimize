@@ -1,0 +1,18 @@
+language: node_js
+
+cache: yarn
+
+stages:
+  - build
+  - test
+  - name: deploy
+    if: branch = master
+
+jobs:
+  include:
+    - stage: deploy
+      deploy:
+        provider: script
+        skip_cleanup: true
+        script:
+          - npx semantic-release
