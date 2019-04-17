@@ -4,6 +4,7 @@
   "main": "lib/react-optimize.js",
   "license": "MIT",
   "scripts": {
+    "test": "echo 'TODO'",
     "build": "webpack",
     "watch": "webpack --watch",
     "prepublishOnly": "yarn run build"
