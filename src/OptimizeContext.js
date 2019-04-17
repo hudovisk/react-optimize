@@ -1,5 +1,5 @@
-import createContext from "create-react-context";
+import React from "react";
 
-const OptimizeContext = createContext();
+const OptimizeContext = React.createContext();
 
 export default OptimizeContext;
