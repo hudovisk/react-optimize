@@ -1,7 +1,5 @@
 import React from "react";
-import createReactContext from "create-react-context";
-
-const OptimizeContext = createReactContext();
+import OptimizeContext from "./OptimizeContext";
 
 export class Experiment extends React.Component {
   static defaultProps = {
