@@ -1,13 +1,48 @@
 import React from "react";
-import { render } from "react-testing-library";
+import { shallow } from "enzyme";
+import sinon from "sinon";
 import { Experiment } from "../../src";
 
 describe("experiment", () => {
   it("should require experiment id", () => {
-    try {
-      render(<Experiment />);
-    } catch (e) {
-      expect(e).to.be.undefined;
-    }
+    expect(() => shallow(<Experiment />)).to.throw();
+  });
+
+  describe("on optimize already loaded", () => {
+    it("should render original variant on experiment not active", () => {
+      const wrapper = shallow(<Experiment id="abc" />);
+
+      expect(wrapper.state("variant")).to.be.equal("0");
+    });
+
+    it("should get variant", () => {
+      window.google_optimize = { get: sinon.stub().returns("2") };
+
+      const wrapper = shallow(<Experiment id="abc" />);
+
+      expect(window.google_optimize.get.calledWith("abc")).to.be.true;
+      expect(wrapper.state("variant")).to.be.equal("2");
+
+      delete window.google_optimize;
+    });
+  });
+
+  describe("on optmize loading", () => {
+    beforeEach(() => {
+      window.dataLayer = {
+        hide: { end: () => {} }
+      };
+    });
+
+    afterEach(() => {
+      delete window.dataLayer;
+    });
+
+    it("should render loader", () => {
+      const Loader = () => <div>loader</div>;
+      const wrapper = shallow(<Experiment id="abc" loader={<Loader />} />);
+
+      expect(wrapper.find(Loader)).to.have.lengthOf(1);
+    });
   });
 });
