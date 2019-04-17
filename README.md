@@ -1,5 +1,7 @@
 # react-optimize
 
+[![Build Status](https://travis-ci.com/hudovisk/react-optimize.svg?branch=master)](https://travis-ci.com/hudovisk/react-optimize)
+
 Integration with Google Optimize.
 
 Docs:
