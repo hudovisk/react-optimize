@@ -5,13 +5,6 @@ import chai from "chai";
 Enzyme.configure({ adapter: new Adapter() });
 
 // ----------------------------------------
-// Mocha
-// ----------------------------------------
-mocha.setup({
-  ui: "bdd"
-});
-
-// ----------------------------------------
 // Chai
 // ----------------------------------------
 global.expect = chai.expect;
