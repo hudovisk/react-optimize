@@ -9,7 +9,10 @@ describe("experiment", () => {
   });
 
   describe("on optimize already loaded", () => {
+
     it("should render original variant on experiment not active", () => {
+      window.google_optimize = { get: sinon.stub().returns(null) };
+
       const wrapper = shallow(<Experiment id="abc" />);
 
       expect(wrapper.state("variant")).to.be.equal("0");
@@ -27,18 +30,9 @@ describe("experiment", () => {
     });
   });
 
-  describe("on optmize loading", () => {
-    beforeEach(() => {
-      window.dataLayer = {
-        hide: { end: () => {} }
-      };
-    });
-
-    afterEach(() => {
-      delete window.dataLayer;
-    });
-
+  describe("on optimize not loaded yet", () => {
     it("should render loader", () => {
+      delete window.dataLayer;
       const Loader = () => <div>loader</div>;
       const wrapper = shallow(<Experiment id="abc" loader={<Loader />} />);
 

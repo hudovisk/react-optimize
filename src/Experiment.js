@@ -3,7 +3,8 @@ import OptimizeContext from "./OptimizeContext";
 
 class Experiment extends React.Component {
   static defaultProps = {
-    loader: null
+    loader: null,
+    timeout: 3000
   };
 
   state = {
@@ -12,14 +13,17 @@ class Experiment extends React.Component {
 
   updateVariant = value => {
     // if experiment not active, render original
-    this.setState({
-      variant: value === undefined || value === null ? "0" : value
-    });
+    const newVariant = value === undefined || value === null ? "0" : value;
+    if(newVariant !== this.state.variant) {
+      this.setState({
+        variant: newVariant
+      });
+    }
   };
 
-  delayedInitialization = () => {
+  updateVariantFromGlobalState = () => {
     const value =
-      window.google_optimize && window.google_optimize.get(this.props.id);
+      typeof window !== 'undefined' && window.google_optimize ? window.google_optimize.get(this.props.id) : null;
     this.updateVariant(value);
   };
 
@@ -29,25 +33,32 @@ class Experiment extends React.Component {
     }
 
     // Delayed init
-    const hideEnd =
-      window.dataLayer && window.dataLayer.hide && window.dataLayer.hide.end;
-    if (hideEnd) {
+    if(typeof window !== 'undefined' && !window.google_optimize) {
+      if (!window.dataLayer) window.dataLayer = [];
+      if (!window.dataLayer.hide)
+        window.dataLayer.hide = {
+          start: Date.now(),
+        };
+      const oldHideEnd = window.dataLayer.hide.end;
+      const timeout = setTimeout(this.updateVariantFromGlobalState, this.props.timeout);
       window.dataLayer.hide.end = () => {
-        this.delayedInitialization();
-        hideEnd();
+        clearTimeout(timeout);
+        this.updateVariantFromGlobalState();
+        if(oldHideEnd) oldHideEnd();
       };
-    } else {
-      this.delayedInitialization();
-    }
 
-    window.gtag && window.gtag("event", "optimize.callback", {
-      name: this.props.id,
-      callback: this.updateVariant
-    });
+      window.gtag && window.gtag("event", "optimize.callback", {
+        name: this.props.id,
+        callback: this.updateVariant
+      });
+    } else {
+      // Google Optimize already loaded, or we're doing server-side rendering
+      this.updateVariantFromGlobalState();
+    }
   }
 
   componentWillUnmount() {
-    window.gtag && window.gtag("event", "optimize.callback", {
+    typeof window !== 'undefined' && window.gtag && window.gtag("event", "optimize.callback", {
       name: this.props.id,
       callback: this.updateVariant,
       remove: true
