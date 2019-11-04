@@ -9,7 +9,7 @@ Docs:
  - Optimize JS API: https://support.google.com/optimize/answer/9059383
 
 
-## Instalation
+## Installation
 ```
 yarn add react-optimize
 ```
