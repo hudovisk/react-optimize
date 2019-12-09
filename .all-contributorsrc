@@ -19,7 +19,18 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "dobesv",
+      "name": "Dobes Vandermeer",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/327833?v=4",
+      "profile": "http://dobesv.com",
+      "contributions": [
+        "code",
+        "doc"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
