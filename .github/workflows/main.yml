@@ -5,6 +5,8 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      CI: true
 
     steps:
       - uses: actions/checkout@v1
@@ -25,13 +27,14 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-yarn-
 
-      - name: yarn, build, and test
-        run: |
-          yarn
-          yarn build
-          yarn test
-        env:
-          CI: true
+      - name: yarn
+        run: yarn
+
+      - name: build
+        run: yarn build
+
+      - name: test
+        run: yarn test
 
       - name: release
         if: github.ref == 'refs/heads/master'
