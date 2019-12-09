@@ -1,6 +1,6 @@
 # react-optimize
 
-[![Build Status](https://github.com/hudovisk/react-optimize/workflows/main.yml/badge.svg)](https://github.com/hudovisk/react-optimize/actions)
+[![Build Status](https://github.com/hudovisk/react-optimize/workflows/main.yml/badge.svg)](https://github.com/hudovisk/react-optimize/actions) [![Greenkeeper badge](https://badges.greenkeeper.io/hudovisk/react-optimize.svg)](https://greenkeeper.io/)
 
 Integration with Google Optimize.
 
