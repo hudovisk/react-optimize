@@ -2,6 +2,7 @@
   "name": "react-optimize",
   "version": "1.0.2",
   "main": "lib/react-optimize.js",
+  "repository": "hudovisk/react-optimize",
   "license": "MIT",
   "scripts": {
     "test:node": "mocha --require @babel/register test/test.node.js",
