@@ -1,0 +1,25 @@
+{
+  "projectName": "react-optimize",
+  "projectOwner": "hudovisk",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": true,
+  "commitConvention": "angular",
+  "contributors": [
+    {
+      "login": "hudovisk",
+      "name": "Hudo Assenco",
+      "avatar_url": "https://avatars2.githubusercontent.com/u/5161722?v=4",
+      "profile": "https://github.com/hudovisk",
+      "contributions": [
+        "code",
+        "doc"
+      ]
+    }
+  ],
+  "contributorsPerLine": 7
+}
