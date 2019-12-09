@@ -19,7 +19,17 @@
         "code",
         "doc"
       ]
+    },
+    {
+      "login": "tiak",
+      "name": "tiak",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/329927?v=4",
+      "profile": "https://github.com/Tiak",
+      "contributions": [
+        "review"
+      ]
     }
   ],
-  "contributorsPerLine": 7
+  "contributorsPerLine": 7,
+  "skipCi": true
 }
