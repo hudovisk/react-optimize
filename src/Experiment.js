@@ -1,9 +1,16 @@
 import React from "react";
+import PropTypes from "prop-types";
 import OptimizeContext from "./OptimizeContext";
 
 class Experiment extends React.Component {
   static defaultProps = {
     loader: null
+  };
+
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    loader: PropTypes.node,
+    children: PropTypes.node
   };
 
   state = {
