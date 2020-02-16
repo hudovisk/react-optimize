@@ -2,7 +2,7 @@ import "./setup";
 
 import React from "react";
 import ReactDOM from "react-dom/server";
-import { Variant, Experiment } from "../src";
+import { Variant, Experiment } from "../lib/react-optimize";
 
 describe("ssr", () => {
   it("should render without errors", () => {
