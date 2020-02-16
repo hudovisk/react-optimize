@@ -8,7 +8,8 @@ module.exports = {
     filename: "react-optimize.js",
     library: "react-optimize",
     libraryTarget: 'umd',
-    umdNamedDefine: true
+    umdNamedDefine: true,
+    globalObject: 'this'
   },
   externals: {
     react: 'react',
