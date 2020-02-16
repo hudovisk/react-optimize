@@ -4,6 +4,9 @@
   "main": "lib/react-optimize.js",
   "repository": "hudovisk/react-optimize",
   "license": "MIT",
+  "files": [
+    "/lib"
+  ],
   "scripts": {
     "lint:fix": "yarn lint --fix",
     "lint": "eslint src/ test/",
