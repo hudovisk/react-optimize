@@ -9,7 +9,7 @@ const testsContext = require.context("./specs/", true, /\.spec\.js$/);
 const __karmaWebpackManifest__ = [];
 let runnable = testsContext
   .keys()
-  .filter(path => __karmaWebpackManifest__.indexOf(path) >= 0);
+  .filter((path) => __karmaWebpackManifest__.indexOf(path) >= 0);
 
 if (!runnable.length) runnable = testsContext.keys();
 

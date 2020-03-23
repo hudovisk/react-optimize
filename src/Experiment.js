@@ -5,29 +5,29 @@ import OptimizeContext from "./OptimizeContext";
 class Experiment extends React.Component {
   static defaultProps = {
     loader: null,
-    timeout: 3000
+    timeout: 3000,
   };
 
   static propTypes = {
     id: PropTypes.string.isRequired,
     loader: PropTypes.node,
     timeout: PropTypes.number,
-    children: PropTypes.node
+    children: PropTypes.node,
   };
 
   state = {
-    variant: null
+    variant: null,
   };
 
   updateVariantTimeout = null;
 
-  updateVariant = value => {
+  updateVariant = (value) => {
     clearTimeout(this.updateVariantTimeout);
     // if experiment not active, render original
     const newVariant = value === undefined || value === null ? "0" : value;
     if (newVariant !== this.state.variant) {
       this.setState({
-        variant: newVariant
+        variant: newVariant,
       });
     }
   };
@@ -54,7 +54,7 @@ class Experiment extends React.Component {
     window.gtag &&
       window.gtag("event", "optimize.callback", {
         name: this.props.id,
-        callback: this.updateVariant
+        callback: this.updateVariant,
       });
   };
 
@@ -85,7 +85,7 @@ class Experiment extends React.Component {
       window.gtag("event", "optimize.callback", {
         name: this.props.id,
         callback: this.updateVariant,
-        remove: true
+        remove: true,
       });
   }
 

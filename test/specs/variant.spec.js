@@ -19,7 +19,7 @@ describe("variant", () => {
       </>,
       {
         wrappingComponent: OptimizeContext.Provider,
-        wrappingComponentProps: { value: "1" }
+        wrappingComponentProps: { value: "1" },
       }
     );
 
