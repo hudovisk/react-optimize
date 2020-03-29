@@ -80,6 +80,7 @@ class Experiment extends React.Component {
   }
 
   componentWillUnmount() {
+    clearTimeout(this.updateVariantTimeout);
     typeof window !== "undefined" &&
       window.gtag &&
       window.gtag("event", "optimize.callback", {
