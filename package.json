@@ -51,7 +51,7 @@
     "karma-mocha-reporter": "^2.2.5",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^4.0.2",
-    "mocha": "^7.0.1",
+    "mocha": "^7.1.1",
     "prettier": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
