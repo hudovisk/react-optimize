@@ -32,7 +32,7 @@
     "@babel/register": "^7.10.1",
     "@commitlint/cli": "^8.3.5",
     "@commitlint/config-conventional": "^8.3.4",
-    "all-contributors-cli": "^6.15.0",
+    "all-contributors-cli": "^6.16.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "chai": "^4.2.0",
