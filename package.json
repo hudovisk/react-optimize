@@ -31,7 +31,7 @@
     "@babel/preset-react": "^7.10.4",
     "@babel/register": "^7.10.4",
     "@commitlint/cli": "^9.0.1",
-    "@commitlint/config-conventional": "^9.0.1",
+    "@commitlint/config-conventional": "^9.1.1",
     "all-contributors-cli": "^6.16.1",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
