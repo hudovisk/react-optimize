@@ -46,7 +46,7 @@ class Experiment extends React.Component {
       typeof window !== "undefined" && window.google_optimize
         ? window.google_optimize.get(this.props.id)
         : null;
-    if (this.props.asMtvExperiment && value.length > 1) {
+    if (this.props.asMtvExperiment && value) {
       this.implementExperiment(value);
     } else {
       this.updateVariant(value);
