@@ -3,21 +3,6 @@ import PropTypes from "prop-types";
 import OptimizeContext from "./OptimizeContext";
 
 class Experiment extends React.Component {
-  static defaultProps = {
-    loader: null,
-    timeout: 3000,
-    asMtvExperiment: false,
-  };
-
-  static propTypes = {
-    id: PropTypes.string.isRequired,
-    loader: PropTypes.node,
-    timeout: PropTypes.number,
-    children: PropTypes.node,
-    asMtvExperiment: PropTypes.bool,
-    indexSectionPosition: PropTypes.string,
-  };
-
   state = {
     variant: null,
   };
@@ -111,5 +96,20 @@ class Experiment extends React.Component {
     );
   }
 }
+
+Experiment.propTypes = {
+  id: PropTypes.string.isRequired,
+  loader: PropTypes.node,
+  timeout: PropTypes.number,
+  children: PropTypes.node,
+  asMtvExperiment: PropTypes.bool,
+  indexSectionPosition: PropTypes.string,
+};
+
+Experiment.defaultProps = {
+  loader: null,
+  timeout: 3000,
+  asMtvExperiment: false,
+};
 
 export default Experiment;
