@@ -6,6 +6,7 @@ class Experiment extends React.Component {
   static defaultProps = {
     loader: null,
     timeout: 3000,
+    asMtvExperiment: false,
   };
 
   static propTypes = {
@@ -13,6 +14,8 @@ class Experiment extends React.Component {
     loader: PropTypes.node,
     timeout: PropTypes.number,
     children: PropTypes.node,
+    asMtvExperiment: PropTypes.bool,
+    indexSectionPosition: PropTypes.string,
   };
 
   state = {
@@ -32,12 +35,22 @@ class Experiment extends React.Component {
     }
   };
 
+  implementExperiment = (value) => {
+    const sections = value.split("-");
+    const variant = sections[this.props.indexSectionPosition];
+    this.updateVariant(variant);
+  };
+
   updateVariantFromGlobalState = () => {
     const value =
       typeof window !== "undefined" && window.google_optimize
         ? window.google_optimize.get(this.props.id)
         : null;
-    this.updateVariant(value);
+    if (this.props.asMtvExperiment && value.length > 1) {
+      this.implementExperiment(value);
+    } else {
+      this.updateVariant(value);
+    }
   };
 
   setupOptimizeCallback = () => {
