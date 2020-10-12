@@ -20,21 +20,24 @@ class Experiment extends React.Component {
     }
   };
 
-  implementExperiment = (value) => {
+  applyMtvExperiment = (value) => {
     const sections = value.split("-");
     const variant = sections[this.props.indexSectionPosition];
     this.updateVariant(variant);
   };
 
   updateVariantFromGlobalState = () => {
-    const value =
+    const googleOptimizeExperimentValue =
       typeof window !== "undefined" && window.google_optimize
         ? window.google_optimize.get(this.props.id)
         : null;
-    if (this.props.asMtvExperiment && value) {
-      this.implementExperiment(value);
+    const isAMtvExperiment =
+      this.props.asMtvExperiment && googleOptimizeExperimentValue;
+
+    if (isAMtvExperiment) {
+      this.applyMtvExperiment(googleOptimizeExperimentValue);
     } else {
-      this.updateVariant(value);
+      this.updateVariant(googleOptimizeExperimentValue);
     }
   };
 
