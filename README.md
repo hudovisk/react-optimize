@@ -73,7 +73,7 @@ class App extends React.Component {
 #### Multivariate Test
 If the experience is a **multivariate testing** to test variants with two or more different sections. You can use the lib like the following applying the props **asMtvExperiment (confirm that is multivariate)** and the **indexSectionPosition** on google optimize like the image below:
 
-<img src="./google-optimize-test.png">
+![google optimize multivariate test](./google-optimize-test.png)
 
 ```
 import React from 'react';
