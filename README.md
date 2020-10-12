@@ -21,8 +21,6 @@ Docs:
 yarn add react-optimize
 ```
 
-## How to use
-
 You first need to add the gtag snippet with the optimize container id in it. If you are using [create-react-app](https://github.com/facebook/create-react-app)
 you can add the following to `public/index.html`
 
@@ -44,7 +42,10 @@ REACT_APP_GA_ID=UA-xyz
 REACT_APP_OPTIMIZE_ID=GTM-abc
 ```
 
-After that you can use the lib like the following:
+## How to use
+
+#### A/B Test
+If the experience is a **A/B testing** you can use the lib like the following:
 
 ```
 import React from 'react';
@@ -62,6 +63,64 @@ class App extends React.Component {
         </Variant>
         <Variant id="2">
           Variant 2
+        </Variant>
+      </Experiment>
+    )
+  }
+}
+```
+
+#### Multivariate Test
+If the experience is a **multivariate testing** to test variants with two or more different sections. You can use the lib like the following applying the props **asMtvExperiment (confirm that is multivariate)** and the **indexSectionPosition** on google optimize like the image below:
+
+<img src="./google-optimize-test.png">
+
+```
+import React from 'react';
+import { Experiment, Variant } from "react-optimize";
+
+class App extends React.Component {
+  render() {
+    return(
+      <Experiment 
+        id="<experiment-id>"
+        asMtvExperiment
+        indexSectionPosition="0"
+      >
+        <Variant id="0">
+          Original
+        </Variant>
+        <Variant id="1">
+          Variant 1
+        </Variant>
+      </Experiment>
+
+      <Experiment 
+        id="<experiment-id>"
+        asMtvExperiment
+        indexSectionPosition="1"
+      >
+        <Variant id="0">
+          Original
+        </Variant>
+        <Variant id="1">
+          Variant 1
+        </Variant>
+        <Variant id="2">
+          Variant 2
+        </Variant>
+      </Experiment>
+
+      <Experiment 
+        id="<experiment-id>"
+        asMtvExperiment
+        indexSectionPosition="2"
+      >
+        <Variant id="0">
+          Original
+        </Variant>
+        <Variant id="1">
+          Variant 1
         </Variant>
       </Experiment>
     )
