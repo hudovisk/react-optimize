@@ -3,11 +3,6 @@ import PropTypes from "prop-types";
 import OptimizeContext from "./OptimizeContext";
 
 class Variant extends React.Component {
-  static propTypes = {
-    id: PropTypes.string.isRequired,
-    children: PropTypes.node,
-  };
-
   render() {
     return (
       <OptimizeContext.Consumer>
@@ -16,5 +11,10 @@ class Variant extends React.Component {
     );
   }
 }
+
+Variant.propTypes = {
+  id: PropTypes.string.isRequired,
+  children: PropTypes.node,
+};
 
 export default Variant;
