@@ -13,7 +13,7 @@
     "test:node": "mocha --require @babel/register test/test.node.js",
     "test:browser": "cross-env NODE_ENV=test karma start",
     "test": "yarn run test:node && yarn run test:browser && yarn run lint",
-    "build": "webpack",
+    "build": "rm -Rf lib && webpack",
     "watch": "webpack --watch",
     "prepublishOnly": "yarn run build"
   },
