@@ -1,12 +1,10 @@
-declare module "react-optimize" {
-  import { ComponentType, ReactNode } from "react";
+declare module 'react-optimize' {
+  import { ComponentType, ReactNode } from 'react';
   interface ExperimentProps {
     children: ReactNode;
     id: string;
     loader?: ReactNode;
     timeout?: number;
-    asMtvExperiment?: boolean;
-    indexSectionPosition?: string | number;
   }
 
   const Experiment: ComponentType<ExperimentProps>;

@@ -3,6 +3,18 @@ import PropTypes from "prop-types";
 import OptimizeContext from "./OptimizeContext";
 
 class Experiment extends React.Component {
+  static defaultProps = {
+    loader: null,
+    timeout: 3000,
+  };
+
+  static propTypes = {
+    id: PropTypes.string.isRequired,
+    loader: PropTypes.node,
+    timeout: PropTypes.number,
+    children: PropTypes.node,
+  };
+
   state = {
     variant: null,
   };
@@ -20,25 +32,12 @@ class Experiment extends React.Component {
     }
   };
 
-  applyMtvExperiment = (value) => {
-    const sections = value.split("-");
-    const variant = sections[this.props.indexSectionPosition];
-    this.updateVariant(variant);
-  };
-
   updateVariantFromGlobalState = () => {
-    const googleOptimizeExperimentValue =
+    const value =
       typeof window !== "undefined" && window.google_optimize
         ? window.google_optimize.get(this.props.id)
         : null;
-    const isAMtvExperiment =
-      this.props.asMtvExperiment && googleOptimizeExperimentValue;
-
-    if (isAMtvExperiment) {
-      this.applyMtvExperiment(googleOptimizeExperimentValue);
-    } else {
-      this.updateVariant(googleOptimizeExperimentValue);
-    }
+    this.updateVariant(value);
   };
 
   setupOptimizeCallback = () => {
@@ -99,20 +98,5 @@ class Experiment extends React.Component {
     );
   }
 }
-
-Experiment.propTypes = {
-  id: PropTypes.string.isRequired,
-  loader: PropTypes.node,
-  timeout: PropTypes.number,
-  children: PropTypes.node,
-  asMtvExperiment: PropTypes.bool,
-  indexSectionPosition: PropTypes.string,
-};
-
-Experiment.defaultProps = {
-  loader: null,
-  timeout: 3000,
-  asMtvExperiment: false,
-};
 
 export default Experiment;
