@@ -58,7 +58,7 @@
     "semantic-release": "^17.2.1",
     "sinon": "^9.2.0",
     "webpack": "^4.44.2",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^4.0.0"
   },
   "peerDependencies": {
     "prop-types": "^15.0.0",
