@@ -45,7 +45,7 @@ REACT_APP_OPTIMIZE_ID=GTM-abc
 #### A/B Test
 If the experience is a **A/B testing** you can use the lib like the following:
 
-```
+```js
 import React from 'react';
 import { Experiment, Variant } from "react-optimize";
 
