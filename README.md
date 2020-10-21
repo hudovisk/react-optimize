@@ -22,7 +22,7 @@ yarn add react-optimize
 You first need to add the gtag snippet with the optimize container id in it. If you are using [create-react-app](https://github.com/facebook/create-react-app)
 you can add the following to `public/index.html`
 
-```
+```html
 <script async src="https://www.googletagmanager.com/gtag/js?id=%REACT_APP_GA_ID%"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
