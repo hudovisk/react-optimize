@@ -73,7 +73,7 @@ If the experience is a **multivariate testing** to test variants with two or mor
 
 ![google optimize multivariate test](./google-optimize-test.png)
 
-```
+```js
 import React from 'react';
 import { Experiment, Variant } from "react-optimize";
 
