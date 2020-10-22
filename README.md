@@ -27,9 +27,9 @@ you can add the following to `public/index.html`
 <script>
   window.dataLayer = window.dataLayer || [];
   gtag = function () { dataLayer.push(arguments); }
-  gtag('js', new Date());
+  gtag("js", new Date());
 
-  gtag('config', '%REACT_APP_GA_ID%', { 'optimize_id': '%REACT_APP_OPTIMIZE_ID%'});
+  gtag("config", "%REACT_APP_GA_ID%", { "optimize_id": "%REACT_APP_OPTIMIZE_ID%"});
 </script>
 ```
 
@@ -46,7 +46,7 @@ REACT_APP_OPTIMIZE_ID=GTM-abc
 If the experience is a **A/B testing** you can use the lib like the following:
 
 ```js
-import React from 'react';
+import React from "react";
 import { Experiment, Variant } from "react-optimize";
 
 class App extends React.Component {
@@ -74,7 +74,7 @@ If the experience is a **multivariate testing** to test variants with two or mor
 ![google optimize multivariate test](./google-optimize-test.png)
 
 ```js
-import React from 'react';
+import React from "react";
 import { Experiment, Variant } from "react-optimize";
 
 class App extends React.Component {
