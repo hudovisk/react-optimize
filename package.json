@@ -2,6 +2,7 @@
   "name": "react-optimize",
   "version": "1.0.2",
   "main": "lib/react-optimize.js",
+  "types": "lib/react-optimize.d.ts",
   "repository": "hudovisk/react-optimize",
   "license": "MIT",
   "files": [
@@ -36,6 +37,7 @@
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "chai": "^4.2.0",
+    "copy-webpack-plugin": "^6.2.1",
     "cross-env": "^7.0.2",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.5",

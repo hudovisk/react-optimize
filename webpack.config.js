@@ -1,4 +1,5 @@
 const path = require("path");
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
@@ -25,5 +26,15 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: [
+    new CopyPlugin({
+      patterns: [
+        {
+          from: path.join(__dirname, "src/index.d.ts"),
+          to: path.join(__dirname, 'lib', 'react-optimize.d.ts'),
+        }
+      ]
+    })
+  ]
 };
