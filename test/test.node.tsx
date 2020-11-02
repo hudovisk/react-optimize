@@ -2,7 +2,8 @@ import "./setup";
 
 import React from "react";
 import ReactDOM from "react-dom/server";
-import { Variant, Experiment } from "../lib/react-optimize";
+import { expect } from "chai";
+import { Variant, Experiment } from "../lib";
 
 describe("ssr", () => {
   it("should render without errors", () => {

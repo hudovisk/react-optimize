@@ -2,10 +2,11 @@ const path = require("path");
 
 module.exports = {
   mode: process.env.NODE_ENV === "production" ? "production" : "development",
-  entry: path.resolve(__dirname, "src/index.js"),
+  entry: path.resolve(__dirname, "src/index.ts"),
+  devtool: "source-map",
   output: {
     path: path.resolve(__dirname, 'lib'),
-    filename: "react-optimize.js",
+    filename: "index.js",
     library: "react-optimize",
     libraryTarget: 'umd',
     umdNamedDefine: true,
@@ -15,14 +16,15 @@ module.exports = {
     react: 'react',
     "prop-types": "prop-types"
   },
+  resolve: {
+    extensions: [ '.tsx', '.ts', '.js' ],
+  },
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.tsx?$/,
         exclude: /(node_modules|bower_components)/,
-        use: {
-          loader: "babel-loader"
-        }
+        use: "ts-loader"
       }
     ]
   }

@@ -1,7 +1,7 @@
 {
   "name": "react-optimize",
   "version": "1.0.2",
-  "main": "lib/react-optimize.js",
+  "main": "lib/index.js",
   "repository": "hudovisk/react-optimize",
   "license": "MIT",
   "files": [
@@ -32,6 +32,14 @@
     "@babel/register": "^7.12.1",
     "@commitlint/cli": "^11.0.0",
     "@commitlint/config-conventional": "^11.0.0",
+    "@types/chai": "^4.2.14",
+    "@types/enzyme": "^3.10.8",
+    "@types/enzyme-adapter-react-16": "^1.0.6",
+    "@types/mocha": "^8.0.3",
+    "@types/react": "^16.9.55",
+    "@types/react-dom": "^16.9.9",
+    "@types/sinon": "^9.0.8",
+    "@types/webpack-env": "^1.15.3",
     "all-contributors-cli": "^6.19.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
@@ -57,11 +65,12 @@
     "react-dom": "^16.14.0",
     "semantic-release": "^17.2.2",
     "sinon": "^9.2.1",
+    "ts-loader": "^8.0.7",
+    "typescript": "^4.0.5",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.1.0"
   },
   "peerDependencies": {
-    "prop-types": "^15.0.0",
     "react": "^16.3.0"
   }
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
+import { expect } from "chai";
 import { Variant } from "../../src";
 import OptimizeContext from "../../src/OptimizeContext";
 

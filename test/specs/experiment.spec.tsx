@@ -1,6 +1,7 @@
 import React from "react";
 import { shallow } from "enzyme";
 import sinon from "sinon";
+import { expect } from "chai";
 import { Experiment } from "../../src";
 
 describe("experiment", () => {
@@ -32,7 +33,7 @@ describe("experiment", () => {
       window.google_optimize = { get: sinon.stub().returns("1-2-1") };
 
       const wrapper = shallow(
-        <Experiment asMtvExperiment indexSectionPosition="0" id="abc" />
+        <Experiment asMtvExperiment indexSectionPosition={0} id="abc" />
       );
 
       expect(window.google_optimize.get.calledWith("abc")).to.be.true;

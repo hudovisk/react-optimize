@@ -1,15 +1,33 @@
 import React from "react";
-import PropTypes from "prop-types";
 import OptimizeContext from "./OptimizeContext";
 
-class Experiment extends React.Component {
-  state = {
+interface ExperimentProps {
+  id: string;
+  loader?: React.ReactNode;
+  timeout?: number;
+  children?: React.ReactNode;
+  asMtvExperiment?: boolean;
+  indexSectionPosition?: number;
+}
+
+interface ExperimentState {
+  variant: string | null;
+}
+
+class Experiment extends React.Component<ExperimentProps, ExperimentState> {
+  static defaultProps: Partial<ExperimentProps> = {
+    loader: null,
+    timeout: 3000,
+    asMtvExperiment: false,
+  };
+
+  state: ExperimentState = {
     variant: null,
   };
 
-  updateVariantTimeout = null;
+  updateVariantTimeout: NodeJS.Timeout | null = null;
 
-  updateVariant = (value) => {
+  updateVariant = (value?: string) => {
     clearTimeout(this.updateVariantTimeout);
     // if experiment not active, render original
     const newVariant = value === undefined || value === null ? "0" : value;
@@ -20,7 +38,7 @@ class Experiment extends React.Component {
     }
   };
 
-  applyMtvExperiment = (value) => {
+  applyMtvExperiment = (value: string) => {
     const sections = value.split("-");
     const variant = sections[this.props.indexSectionPosition];
     this.updateVariant(variant);
@@ -99,20 +117,5 @@ class Experiment extends React.Component {
     );
   }
 }
-
-Experiment.propTypes = {
-  id: PropTypes.string.isRequired,
-  loader: PropTypes.node,
-  timeout: PropTypes.number,
-  children: PropTypes.node,
-  asMtvExperiment: PropTypes.bool,
-  indexSectionPosition: PropTypes.string,
-};
-
-Experiment.defaultProps = {
-  loader: null,
-  timeout: 3000,
-  asMtvExperiment: false,
-};
 
 export default Experiment;

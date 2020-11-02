@@ -1,0 +1,14 @@
+{
+    "compilerOptions": {
+        "allowSyntheticDefaultImports": true,
+        "outDir": "./lib/",
+        "noImplicitAny": true,
+        "module": "es6",
+        "moduleResolution": "node",
+        "target": "ES5",
+        "jsx": "react",
+        "sourceMap": true,
+        "declaration": true,
+        "types": ["mocha"]
+    },
+}
