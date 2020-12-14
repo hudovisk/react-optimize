@@ -43,7 +43,7 @@
     "enzyme-adapter-react-16": "^1.15.5",
     "eslint": "^7.15.0",
     "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-prettier": "^3.2.0",
+    "eslint-plugin-prettier": "^3.3.0",
     "eslint-plugin-react": "^7.21.5",
     "husky": "^4.3.6",
     "karma": "^5.2.3",
