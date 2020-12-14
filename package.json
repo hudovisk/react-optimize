@@ -58,7 +58,7 @@
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "semantic-release": "^17.3.0",
-    "sinon": "^9.2.1",
+    "sinon": "^9.2.2",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0"
   },
