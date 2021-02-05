@@ -36,7 +36,7 @@
     "all-contributors-cli": "^6.19.0",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.2.2",
-    "chai": "^4.2.0",
+    "chai": "^4.3.0",
     "copy-webpack-plugin": "^6.4.1",
     "cross-env": "^7.0.3",
     "enzyme": "^3.11.0",
