@@ -15,14 +15,14 @@ Docs:
 
 ## Installation
 
-```
+```bash
 yarn add react-optimize
 ```
 
 You first need to add the gtag snippet with the optimize container id in it. If you are using [create-react-app](https://github.com/facebook/create-react-app)
 you can add the following to `public/index.html`
 
-```
+```html
 <script async src="https://www.googletagmanager.com/gtag/js?id=%REACT_APP_GA_ID%"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -45,7 +45,7 @@ REACT_APP_OPTIMIZE_ID=GTM-abc
 #### A/B Test
 If the experience is a **A/B testing** you can use the lib like the following:
 
-```
+```jsx
 import React from 'react';
 import { Experiment, Variant } from "react-optimize";
 
@@ -73,7 +73,7 @@ If the experience is a **multivariate testing** to test variants with two or mor
 
 ![google optimize multivariate test](./google-optimize-test.png)
 
-```
+```jsx
 import React from 'react';
 import { Experiment, Variant } from "react-optimize";
 
