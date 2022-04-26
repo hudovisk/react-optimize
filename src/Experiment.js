@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import OptimizeContext from "./OptimizeContext";
 
 class Experiment extends React.Component {
+  isUnmounted = false;
   state = {
     variant: null,
   };
@@ -48,7 +49,9 @@ class Experiment extends React.Component {
     );
     const oldHideEnd = window.dataLayer.hide.end;
     window.dataLayer.hide.end = () => {
-      this.updateVariantFromGlobalState();
+      if (!this.isUnmounted) {
+        this.updateVariantFromGlobalState();
+      }
       oldHideEnd && oldHideEnd();
     };
 
@@ -82,6 +85,7 @@ class Experiment extends React.Component {
 
   componentWillUnmount() {
     clearTimeout(this.updateVariantTimeout);
+    this.isUnmounted = true;
     typeof window !== "undefined" &&
       window.gtag &&
       window.gtag("event", "optimize.callback", {
