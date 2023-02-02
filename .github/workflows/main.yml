@@ -7,7 +7,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       CI: true
-      NODE_OPTIONS: --openssl-legacy-provider
 
     steps:
       - uses: actions/checkout@v3
@@ -33,9 +32,13 @@ jobs:
 
       - name: build
         run: yarn build
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
 
       - name: test
         run: yarn test
+        env:
+          NODE_OPTIONS: --openssl-legacy-provider
 
       - name: release
         if: github.ref == 'refs/heads/master'
