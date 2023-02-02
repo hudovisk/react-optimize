@@ -57,7 +57,7 @@
     "prettier": "^2.8.3",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "semantic-release": "^17.4.4",
+    "semantic-release": "^20.1.0",
     "sinon": "^10.0.1",
     "webpack": "^4.46.0",
     "webpack-cli": "^4.10.0"
